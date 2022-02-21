@@ -17,7 +17,7 @@ Mention the path of the website in urls.py.
 Publish the website in the given URL.
 
 ## PROGRAM :
-'''
+~~~
 urls.py:-
 from django.contrib import admin
 from django.urls import path
@@ -125,6 +125,7 @@ html Code:-
     </div>
 </body>
 </html>
+~~~
 ## OUTPUT:
 
 ### Home Page:
