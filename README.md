@@ -28,7 +28,6 @@ urlpatterns = [
     path('volofrectangulartank/',views.volumecalculation,name="volofrectangulartank"),
     path('',views.volumecalculation,name="volofrectangulartankroot")
 ]
-'''
 
 views.py:-
 
