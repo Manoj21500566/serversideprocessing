@@ -126,8 +126,6 @@ html Code:-
 </html>
 ~~~
 ## OUTPUT:
-
-
 ## Result:
 A website to perform mathematical calculation in server side is created
 
