@@ -125,7 +125,8 @@ html Code:-
 </body>
 </html>
 ~~~
-## OUTPUT:![man 9](https://user-images.githubusercontent.com/94588708/154983935-ce349120-fa3d-4135-80c2-51567ef4a5d8.png)
+## OUTPUT:
+![man 9](https://user-images.githubusercontent.com/94588708/154983935-ce349120-fa3d-4135-80c2-51567ef4a5d8.png)
 
 ## Result:
 A website to perform mathematical calculation in server side is created
