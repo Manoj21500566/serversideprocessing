@@ -29,45 +29,7 @@ Mention the path of the website in urls.py.
 Publish the website in the given URL.
 
 ## PROGRAM :
-'''
-urls.py:-
-
-from django.contrib import admin
-from django.urls import path
-from mathapp import views
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('volofrectangulartank/',views.volumecalculation,name="volofrectangulartank"),
-    path('',views.volumecalculation,name="volofrectangulartankroot")
-]
-
-
-views.py:-
-
-from django.shortcuts import render
-
-def volumecalculation(request):
-    context ={}
-    context["volume"]='0'
-    context["h"]='0'
-    context["l"]='0'
-    context["w"]='0'
-    if request.method == 'POST':
-        
-        h=request.POST.get('height','0')
-        l=request.POST.get('length','0')
-        w=request.POST.get('width','0')
-        volume=int(h)*int(l)*int(w)
-        context['volume'] = volume
-        context['l']=l
-        context['h']=h
-        context['w']=w
-    return render(request,"mathapp/area.html",context)
-
-
-html Code:-
-
+Area.html:
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,12 +42,11 @@ html Code:-
 <style>
     *{
         box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     }
 
     body{
-    background-color: palegreen;
-    color: black;
+    background-color: rgb(215, 233, 164);
     }
 
     .container{
@@ -95,13 +56,13 @@ html Code:-
     margin-left: auto;
     margin-right: auto;
     border-radius: 25px;
-    border: 10px solid rgb(216, 206, 165);
-    box-shadow: inset 0 0 15px rgb(231, 217, 160);
-    background-color:cornsilk;
+    border: 10px solid rgb(151, 92, 117);
+    box-shadow: inset 0 0 15px rgb(202, 121, 155);
+    background-color:rgb(192, 120, 150);
     }
     h1{
-        color: rgb(0, 0, 0);
         text-align: center;
+        padding-top: 15px;
     }
     .calculate{
         padding-top: 10px;
@@ -110,34 +71,57 @@ html Code:-
         padding-right:10px;
         text-align: center;
         font-size: 20px;
-        padding-top: 7px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 </style>
 <body>
     <div class="container">
-        <h1>VOLUME OF RECTANGULAR TANK</h1>
+        <h1>AREA OF A TRIANGLE</h1>
         <form method="POST">
             {% csrf_token %}
             <div class="calculate"> 
+                Base:<input type="text" name="base" value={{b}}></input><br/>
+            </div>
+            <div class="calculate">
                 Height:<input type="text" name="height" value={{h}}></input><br/>
             </div>
             <div class="calculate">
-                Length:<input type="text" name="length" value={{l}}></input><br/>
+                <input type="submit" value="Calculatearea"></input><br/>
             </div>
             <div class="calculate">
-                Width:<input type="text" name="width" value={{w}}></input><br/>
-            </div>
-            <div class="calculate">
-                <input type="submit" value="Calculate Volume"></input><br/>
-            </div>
-            <div class="calculate">
-                Volume:<input type="text" name="volume" value={{volume}}></input>
+                Area:<input type="text" name="area" value={{area}}></input>
             </div>
         </form>
     </div>
+    
 </body>
 </html>
+Views.py
+from django.shortcuts import render
+
+def areacalculation(request):
+    context ={}
+    context["area"]='0'
+    context["b"]='0'
+    context["h"]='0'
+    if request.method == 'POST':
+        
+        b=request.POST.get('base','0')
+        h=request.POST.get('height','0')
+        area=0.5*int(b)*int(h)
+        context['area'] = area
+        context['b']=b
+        context['h']=h
+    return render(request,"mathapp/area.html",context)
+Urls.py
+from django.contrib import admin
+from django.urls import path
+from mathapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('areaoftriangle/',views.areacalculation,name="areaoftriangle"),
+    path('',views.areacalculation,name="areaoftriangleroot")
+]
 ## OUTPUT:
 
 ### Home Page:
