@@ -17,6 +17,7 @@ Mention the path of the website in urls.py.
 Publish the website in the given URL.
 
 ## PROGRAM :
+'''
 urls.py:-
 from django.contrib import admin
 from django.urls import path
@@ -27,7 +28,7 @@ urlpatterns = [
     path('volofrectangulartank/',views.volumecalculation,name="volofrectangulartank"),
     path('',views.volumecalculation,name="volofrectangulartankroot")
 ]
-
+'''
 
 views.py:-
 
